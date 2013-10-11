@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{title} - {description}</title>
+  <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script src="//static.tumblr.com/fpifyru/VCxlv9xwi/writecapture.js"></script>
+  <script src="//static.tumblr.com/fpifyru/AKFlv9zdu/embedgist.js"></script>
+  <script>
+    $(function () {
+      $(document.body).on('click', 'a', function () {
+        var href = $(this).attr('href');
+        if (href.substr(0, 4) === 'http' && href.indexOf( location.origin ) != 0) {
+          window.open(href);
+          return false;
+        }
+      });
+    });
+  </script>
+  <style type="text/css">
+    <!--(bake ../build/master.css)-->
+  </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!--(bake nav.html)-->
+      <section id="main-content">
+        <header>
+          <h1>{description}</h1>
+          <nav class="toolbar">
+            <form class="search-wrapper" action="/search" method="get">
+              <i class="icon-search"></i>
+              <input type="text" name="q" class="search" placeholder="Search..." value="{searchQuery}" />
+              <input type="submit" value="Search" class="hidden" />
+            </form>
+          </nav>
+        </header>
+        <div class="section-wrapper">
+          <section>
+            {block:Posts}
+              {block:Quote}
+                <!--(bake posts/quote.html)-->
+              {/block:Quote}
+              {block:Link}
+                <!--(bake posts/link.html)-->
+              {/block:Link}
+              {block:Text}
+                <!--(bake posts/text.html)-->
+              {/block:Text}
+              {block:Video}
+                <!--(bake posts/video.html)-->
+              {/block:Video}
+            {/block:Posts}
+          </section>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

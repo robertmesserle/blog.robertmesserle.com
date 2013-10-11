@@ -1,0 +1,11 @@
+<article class="text">
+  <i class="icon-comment"></i>
+  {block:Title}
+    <header>
+      <h1>{title}</h1>
+      <h2 class="date">Posted {TimeAgo}.</h2>
+    </header>
+  {/block:Title}
+  <div class="article-content">{body}</div>
+  <!--(bake footer.html)-->
+</article>
